@@ -1,0 +1,19 @@
+.asidel {
+	float: left;
+	width: 20%;
+	margin-top: 10px;
+	background-color: rgb(229, 246, 250);
+	padding-right: 30px;
+	padding-left: 30px;
+	border-style: groove;
+	color: navy;
+	border-radius: 20px;
+}
+
+.asidel h1 {
+	text-decoration: underline;
+}
+
+.asidel ul {
+	line-height: 2em;
+}

@@ -1,0 +1,33 @@
+﻿body {
+	background: linear-gradient(141deg, #c1eef1 15%, rgb(195, 223, 241) 45%, #b1d2df 75%);
+}
+
+header {
+	width: 500px;
+	text-align: center;
+	margin: 30px auto;
+	height: 50px;
+	font-family: "Microsoft Yahei";
+	font-weight: bolder;
+	font-size: 30px;
+	color: rgb(17, 4, 83);
+}
+
+
+footer {
+	text-align: center;
+	width: 500px;
+	bottom: 0px;
+	margin: 0 auto;
+	background-color: aliceblue;
+}
+
+.section-box {
+	width: 67%;
+	height: 20%;
+	border-radius: 0 100px 100px 0;
+	border-style: double;
+	display: flex;
+	margin-left: 26.5%;
+	background-color: rgb(212, 236, 252);
+}
