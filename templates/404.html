@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>错误的链接</title>
+    {{ super() }}
+{% endblock %}
+
+{% block header %}
+    <header>404 NOT FOUND!!!</header>
+{% endblock %}
+
+{% block content %}
+<a href={{ url_for('index') }}>GOBACK</a>
+{% endblock %}
+
+{% block footer %}
+    <footer>made by group7 in 2020 </footer>
+{% endblock %}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href={{url_for('static',filename='css/base.css')}}>
+    <style type="text/css">
+        header {
+            margin: 60px auto;
+            height: 0px;
+        }
+    </style>
+</head>
+
+
+<body>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <header>登陆界面</header>
+    <div style="width:100%;text-align:center">
+        <form method="post">
+            {{ form.hidden_tag() }}
+            {{ form.username.label }} {{ form.username()}}
+            <br>
+            {{ form.password.label }} {{ form.password()}}
+            <br>
+            {{ form.remember_me.label }} {{ form.remember_me()}}
+            <br>
+            {{ form.submit() }} 
+            <br>
+            没有账号? <a href={{ url_for('register') }}> 注册 </a>
+            <br>
+            {%for message in get_flashed_messages()%}
+            {{message}}<br>
+            {% endfor %}
+        </form>
+    </div>
+
+</body>
+
+</html>

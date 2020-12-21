@@ -1,0 +1,75 @@
+﻿{% extends 'base.html' %}
+
+{% block head %}
+    <title>你好，第三功能</title>
+    <style type="text/css">
+        .section-box1 {
+            width: 67%;
+            height: 360px;
+            border-radius: 0 100px 100px 0;
+            border-style: double;
+            display: flex;
+            margin-left: 26.5%;
+            background-color: rgb(220, 234, 243);
+        }
+
+        .section-box2 {
+            width: 67%;
+            height: 360px;
+            border-radius: 0 100px 100px 0;
+            border-style: double;
+            display: flex;
+            margin-left: 26.5%;
+            background-color: rgb(217, 234, 245);
+        }
+
+        .section-box4 {
+            width: 10%;
+            height: 2%;
+            border-radius: 0 100px 100px 0;
+            border-style: double;
+            display: flex;
+            margin-left: 26.5%;
+            background-color: rgb(217, 234, 245);
+        }
+    </style>
+    {{ super() }}
+{% endblock %}
+
+{% block header %}
+    <header>欢迎来到学生一体化系统</header>
+{% endblock %}
+
+{% block aside %}
+    {% include 'aside.html' %}
+{% endblock %}
+
+{% block content %}
+    <section>
+        {% for message in get_flashed_messages() %}
+        <div class=flash>{{ message }}</div>
+        {% endfor %}
+        <div class=section-box1>
+            <p>如果你是老师，你可以发布作业
+                <br>
+                <a href={{ url_for('sendhw') }}>发布作业</a></p>
+        </div>
+
+        <div class=section-box2>
+            <p>如果你是学生，你可以查看最新发布的作业
+                <br>
+                <a href={{ url_for('gethw') }}>查看作业</a></p>
+        </div>
+
+        <div class=section-box4>
+            <a href={{ url_for('index') }}>返回主页面</a>
+        </div>
+    </section>
+{% endblock %}
+
+{% block footer %}
+    <footer>made by group7 in 2020 </footer>
+{% endblock %}
+    
+
+

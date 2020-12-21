@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <link rel="stylesheet" type="text/css" href={{url_for('static',filename='css/base.css')}}>
+    <style type="text/css">
+        header {
+            margin: 60px auto;
+            height: 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <header>&ensp;&ensp;&ensp;注&ensp;&ensp;&ensp;&ensp;册</header>
+    <div style="width:100%;text-align:center">
+        <form method="post">
+            <label>&ensp;&ensp;&ensp;&ensp;&ensp;用户名:</label><input type="text" name="username"><br>
+            <label>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;密码:</label><input type="password" name="password"><br>
+            <label>&ensp;&ensp;&ensp;确认密码:</label><input type="password" name="repassword"><br>
+            用户类别:
+            <input type="radio" name="is_teacher" value="teacher" checked>老师
+            <input type="radio" name="is_teacher" value="student" checked>学生<br>
+            {%for message in get_flashed_messages()%}
+            {{message}}<br>
+            {%endfor%}
+            <input type="submit" value="提交">
+
+        </form>
+    </div>
+</body>
+
+</html>

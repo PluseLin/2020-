@@ -1,0 +1,84 @@
+<!--written by Wujiasheng-->
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>你好，这是主页</title>
+
+    <style type="text/css">
+        .icon {
+            height: 175px;
+            width: 175px;
+        }
+
+        .icon-info {
+            font-weight: bolder;
+            font-family: 'Times New Roman', Times, serif;
+            margin-left: 30px;
+            width: 900px;
+            font-size: 30px;
+            color: darkblue;
+        }
+
+        .saying {
+            font-size: large;
+            font-style: italic;
+            text-decoration: underline;
+            font-weight: normal;
+        }
+
+    </style>
+    {{ super() }}
+{% endblock %}
+
+{% block header %}
+    <header>欢迎来到学生一体化系统</header>
+{% endblock %}
+
+{% block aside %}
+    {% include 'aside.html' %}
+{% endblock %}
+
+{% block content %}
+    <section>
+        <div class=section-box>
+            <img class="icon" src={{ url_for( 'static', filename='images/1.jpg') }} alt="image" title="my image">
+            <div class="icon-info"><br>上课啦！快去签到吧！<br>
+                <a href={{ url_for('sign') }} title="签到">CLICK HERE</a><br><br>
+                <div class="saying">
+                    不积跬步，无以至千里；不积小流，无以成江海。——《荀子》
+                </div>
+            </div>
+        </div>
+        <div class=section-box>
+            <img class="icon" src={{ url_for('static', filename='images/2.jpg') }} alt="image" title="my image">
+            <div class="icon-info"><br>下课啦！看看今天留了什么作业吧！<br>
+                <a href={{ url_for('function3') }} title="作业">CLICK HERE</a><br><br>
+                <div class="saying">
+                    凡事都要脚踏实地去作,不驰于空想,不骜于虚声,而惟以求真的态度作踏实的工夫。 ——李大钊
+                </div>
+            </div>
+        </div>
+        <div class=section-box>
+            <img class="icon" src={{ url_for('static', filename='images/3.jpg') }} alt="image" title="my image">
+            <div class="icon-info"><br>有什么想说的？来这里畅所欲言吧！！！<br>
+                <a href={{ url_for('function4') }} title="讨论">CLICK HERE</a><br><br>
+                <div class="saying">
+                    如果你是对的，就要试着温和地、技巧地让对方同意你。——卡耐基
+                </div>
+            </div>
+        </div>
+        <div class=section-box>
+            <img class="icon" src={{ url_for('static', filename='images/4.jpg') }} alt="image" title="my image">
+            <div class="icon-info"><br>休息一会？好！<br>
+                <a href={{ url_for('logout') }} title="退出">CLICK HERE</a><br><br>
+                <div class="saying">
+                    休息是为了更好地工作。——列宁
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block footer %}
+    <footer>made by group7 in 2020 </footer>
+{% endblock %}

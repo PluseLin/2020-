@@ -1,0 +1,63 @@
+<!--written by Xiaopengfei-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>恭喜你签到成功！(๑•̀ㅂ•́)و✧</title>
+    <link rel="stylesheet" type="text/css" href={{ url_for('static', filename='css/base.css') }}>
+</head>
+
+<body>
+    <header>欢迎来到学生一体化系统</header>
+    <aside class="asidel">
+        {%if is_teacher == 1 %}
+        <div>
+            <h1>老师好！</h1>
+        </div>
+        {%elif row == 1%}
+        <div>
+            <h1>恭喜你签到成功！(๑•̀ㅂ•́)و✧</h1>
+            <p>
+                今天是你连续签到的第{{day}}天，再接再厉哦！
+            </p>
+        </div>
+        {%else%}
+        <div>
+            <h1>你今天已经完成过签到!</h1>
+            <p>
+                今天是你连续签到的第{{day}}天，再接再厉哦！
+            </p>
+        </div>
+        {%endif%}
+
+        {%if is_teacher == 1%}
+        <table border="1">
+            <tr>
+                <th>Id</th>
+                <th>打卡总数</th>
+                <th>上一次打卡时间</th>
+            </tr>
+            {% for ret in result %}
+            <tr>
+                <td>{{ret[0]}}</td>
+                <td>{{ret[1]}}</td>
+                <td>{{ret[2]}}</td>
+            </tr>
+            {%endfor%}
+        </table>
+        {%endif%}
+
+        <ul>
+            <li><a href={{ url_for('index') }}>返回首页</a></li>
+            <li><a href={{ url_for('sign') }}>留在当前页面</a></li>
+            <li><a href={{ url_for('function3') }}>去提交作业</a></li>
+            <li><a href={{ url_for('function4') }}>去论坛逛逛</a></li>
+            <li><a href={{ url_for('login') }}>休息一下</a></li>
+        </ul>
+        
+    </aside>
+</body>
+
+</html>

@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% block head %}
+	<title>你好，这是作业模块</title>
+	<style type="text/css">
+		.homework-box {
+			width: 67%;
+			height: 80%;
+			border-radius: 0 100px 100px 0;
+			border-style: double;
+			display: flex;
+			margin-left: 26.5%;
+			background-color: rgb(212, 236, 252);
+		}
+
+		.section-box {
+			width: 67%;
+			height: 20%;
+			border-radius: 0 100px 100px 0;
+			border-style: double;
+			display: flex;
+			margin-left: 26.5%;
+			background-color: rgb(212, 236, 252);
+		}
+	</style>
+    {{ super() }}
+{% endblock %}
+
+{% block header %}
+	<header>欢迎来到作业模块</header>
+{% endblock %}
+
+{% block aside %}
+    {% include 'aside.html' %}
+{% endblock %}
+
+{% block content %}
+	<section>
+			<div class="homework-list clearfix" data-id="MDAwMDAwMDAwMLOGx5mIqbOyhdtyoQ">
+				<div class="homework-box">
+					<div class="announce-cont-box">
+						{% for h in hlist %}
+						<div class="title clearfix">
+							<div class="work-type fl" data-time="1605240502">
+								<span>发布时间:{{h.sendtime}}</span>
+							</div>
+						</div>
+						<div class="announce-cont clearfix" style="position: relative;">
+							<div class="work-new-l fl">
+								<div class="word">
+									<div class="p">内容:{{h.homework|safe}}</div>
+								</div>
+							</div>
+						</div>
+						<br><br>
+						{% endfor %}
+						<a href="{{url_for('allhw')}}">查看所有留过的作业</a>
+						<br><br>
+						<ul>
+							<li><a href="{{url_for('index')}}">返回首页</a></li>
+							<li><a href="{{url_for('gethw')}}">留在当前页面</a></li>
+							<li><a href="{{url_for('sign')}}">去签到</a></li>
+							<li><a href="{{url_for('function4')}}">去论坛逛逛</a></li>
+							<li><a href="{{url_for('login')}}">休息一下</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</section>
+{% endblock %}
+
+{% block footer %}
+	<footer>made by group7 in 2020 </footer>
+{% endblock %}

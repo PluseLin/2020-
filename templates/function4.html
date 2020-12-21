@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>此处为评论区</title>
+    <style type="text/css">
+    body{        
+        background: linear-gradient(141deg, #c1eef1 15%, rgb(195, 223, 241) 45%, #b1d2df 75%);
+    }
+
+    header{
+        width:500px;
+        text-align: center;
+        margin:30px auto;        
+        height:50px;    
+        font-family: "Microsoft Yahei";
+        font-weight: bolder;
+        font-size: 30px;
+        color:rgb(17, 4, 83);  
+    }
+
+
+    footer{
+        text-align: center;
+        width:500px;
+        bottom:0px;
+        margin:0 auto;
+        background-color: aliceblue;    
+    }
+
+    .asidel{
+        float:left;
+        width:20%;
+        margin-top: 10px;
+        background-color: rgb(229, 246, 250);
+        padding-right: 30px;
+        padding-left: 30px;
+        border-style:groove;
+        color:navy;
+        border-radius:20px;
+    }
+    .asidel h1{
+        text-decoration: underline;
+    }
+    .asidel ul{
+        line-height: 2em;
+    }
+
+    .section-box1{
+        width:67%;
+        height: 864%;
+        border-radius:0 100px 100px 0 ;
+        border-style: double;
+        display:flex;
+        margin-left: 26.5%;
+        background-color: rgb(220, 234, 243);
+    }
+    .section-box2{
+        width:15%;
+        height: 2%;
+        border-radius:0 100px 100px 0 ;
+        border-style: double;
+        display:flex;
+        margin-left: 26.5%;
+        background-color: rgb(217, 234, 245);
+    }
+    .section-box3{
+        width:67%;
+        height: 16%;
+        border-radius:0 100px 100px 0 ;
+        border-style: double;
+        display:flex;
+        margin-left: 26.5%;
+        background-color: rgb(217, 234, 245);
+    }
+    .section-box4{
+        width:10%;
+        height: 4%;
+        border-radius:0 100px 100px 0 ;
+        border-style: double;
+        display:flex;
+        margin-left: 26.5%;
+        background-color: rgb(217, 234, 245);
+    }
+
+    .icon{
+        height:175px;
+        width:175px;
+    }
+    .icon-info{
+        font-weight: bolder;
+        font-family: 'Times New Roman', Times, serif;
+        margin-left:30px;
+        width: 900px;
+        font-size: 30px;
+        color:darkblue;
+    }
+    .saying{
+        font-size: large;
+        font-style: italic;
+        text-decoration:underline;
+        font-weight: normal;
+    }
+
+    </style>
+</head>
+
+<body>
+    <header>这里是学生一体化系统评论区</header>
+
+    <aside class="asidel">    
+        <h1>这是什么？</h1>
+        <div>这是在2020-2021学年计算机科学导论上设计出的简单网站，这个网站主要为了学生和老师服务。<br>
+            其设计的目的是为了给学生日常学习提供一个一站式解决方案。</div>
+        <ul>
+            <li>支持老师和学生登录</li>
+            <li>支持签到功能</li>
+            <li>支持发布和查看作业</li>
+            <li>支持以文字为主的评论</li>
+        </ul>
+        <br>
+        <h1>我们是谁？</h1>
+        <div>我们是来自电子信息与工程学院-计算机科学与技术专业-大二的学生，本次课程为第七组</div>
+        <ul>
+            <li>谢子康<br>负责登录界面</li>
+            <li>邬嘉晟<br>负责主页</li>
+            <li>肖鹏飞，沈浩然<br>负责签到功能</li>
+            <li>胡浚桐，林佳奕，孙弘毅<br>负责作业和评论</li>
+        </ul>    
+    </aside>
+
+<section>
+    <div class=section-box1>
+        评论区：
+    	<p>
+                {% for m in mlist %}
+                    {{m.username}} (发送时间:{{m.sendtime}})<br>
+                    {{m.message|safe}}
+                    <br>
+                {% endfor %}
+    	</p>
+	<a href="{{url_for('allmessage')}}"> 点击以查看历史记录</a> 
+    </div>
+    <div class=section-box2>
+	<a href="{{url_for('myreview')}}"> 点击以查看我的评论</a>
+    </div>
+    <div class=section-box2>
+        <label for="message">
+                请发表你的评论:
+            </label>
+    </div>
+
+    <div class=section-box3>
+	<form method="POST">
+		{{ form.hidden_tag() }}
+		{{ form.review()}}
+        <br>
+ 		{{ form.submit() }}
+	</form>
+    </div>
+    <div class=section-box4>
+	<a href="{{url_for('index')}}">返回主页面</a>
+    </div>
+</section>
+</body>
+
